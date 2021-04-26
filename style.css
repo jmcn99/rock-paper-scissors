@@ -1,0 +1,64 @@
+html {
+    font-family: 'Raleway', sans-serif;
+    font-size: 35px;
+}
+
+#icons {
+    display: flex;
+    justify-content: center;
+}
+.button {
+    font-size: 200px;
+    border-radius: 25px;
+    border-color: grey;
+    border-style: solid;
+    padding: 10px;
+    margin-left: 60px;
+    margin-right: 60px;
+    transition: transform 0.5s;
+    
+}
+.button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#header {
+
+    display: flex;
+    justify-content: center;
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+    height: 75px;
+    width: auto;
+    margin-top: 25px;
+    
+}
+#f1, #f2 {
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: gray;
+    width: 75px;
+    height: 75px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.sign {
+    margin: auto;
+}
+#greaterthan {
+    transform: scale(2);
+    margin-top: auto;
+    margin-bottom: auto;
+    user-select: none;
+    -webkit-user-select: none;  
+    -moz-user-select: none;     
+    -ms-user-select: none;     
+    user-select: none;  
+    cursor: default;
+}
