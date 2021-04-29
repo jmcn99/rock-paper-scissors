@@ -74,6 +74,7 @@ function point(player) {
         document.getElementById("f2").style.borderColor = "red";
         console.log('user score')
         playerScore++;
+        document.getElementById("player-score-number").innerHTML = playerScore;
         changeSign(user, cpu);
     } else if(player === "cpu") {
         document.getElementById("f2").style.borderColor = "green";
@@ -81,6 +82,7 @@ function point(player) {
         document.getElementById("greaterthan").innerHTML = ">";
         console.log("cpu score");
         cpuScore++;
+        document.getElementById("cpu-score-number").innerHTML = cpuScore;
         changeSign(cpu, user);
     } else {
         document.getElementById("greaterthan").innerHTML = "=";
@@ -105,46 +107,58 @@ function point(player) {
     }
 }
 
+function scoreCheck() {
+    if(playerScore === 5 || cpuScore === 5) {
+        fadeOut();
+    } else {
+        
+    }
+}
+
+function fadeOut() {
+    let container = document.getElementById("game-container");
+    let fade = setInterval(function () {
+        if(!container.style.opacity) {
+            container.style.opacity = 1
+        }
+        if(container.style.opacity > 0) {
+            container.style.opacity -= 0.01;
+        } else {
+            document.getElementById("game-container").remove();
+            clearInterval(fade);
+        }
+    }, 10);
+
+    let playAgain = document.createElement('div');
+    playAgain.setAttribute('style', 'border:solid;border-radius:25;font-size:25px;display:flex;justify-content:center;width:auto;');
+    playAgain.textContent = 'Play Again?';
+    let main = document.getElementById('main');
+    main.appendChild(playAgain);
+
+}
+
 
 // 1 = rock
 // 2 = paper
 // 3 = scissors
 function play() {
     cpu = cpuIn();
-    
+
     //tie
     if(user === cpu) {
         point("tie");
     //user win
     } else if((user === 1 && cpu === 3) || (user === 2 && cpu === 1) || (user === 3 && cpu === 2)) {
-        console.log("user win");
         point("user");
     //cpu win
     } else if((cpu === 1 && user === 3) || (cpu === 2 && user === 1) || (cpu === 3 && user === 2)) {
-        console.log("cpu win");
         point("cpu")
     }
     
-    
+        scoreCheck();
 }
 
 
-function playGame() {
-
-    console.log("Welcome to Rock, Paper, Scissors");
-    console.log("Ready to play?"); 
-    while(playerScore < 5 || cpuScore < 5) {
-        
-        play();
-        console.log(playerScore +"ps");
-        console.log(cpuScore + "cpu");
-    }
-    if(playerScore === 5) {
-        console.log("You win!");
-    } else if (cpuScore === 5) {
-        console.log("You lose.");
-    }
-}
 let playerScore = 0;
 let cpuScore = 0;
 

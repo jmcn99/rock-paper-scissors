@@ -8,26 +8,38 @@
 </head>
 
 <html>
-    <div id="header">
-        <h1>Rock, Paper, Scissors.</h1>
-    </div>
-    <div id="icons">
-        <i id="1"class="far fa-hand-rock fa-10x button"></i>
-        <i id="2"class="far fa-hand-paper fa-10x button"></i>
-        <i id="3"class="far fa-hand-scissors fa-10x button"></i>
-    </div>
-    <div class="flex-container">
-        <div id="f1">
-            <i id="winner" class="far sign"></i>
+    <div id="main">
+        <div id="header">
+            <h1>Rock, Paper, Scissors.</h1>
         </div>
-        <p id="greaterthan">></p>
-        <div id="f2">
-            <i id="loser"class="far sign"></i>
+        <div id="game-container">
+            <div id="icons">
+                <i id="1"class="far fa-hand-rock fa-10x button"></i>
+                <i id="2"class="far fa-hand-paper fa-10x button"></i>
+                <i id="3"class="far fa-hand-scissors fa-10x button"></i>
+            </div>
+            <div class="flex-container">
+                <div id="f1">
+                    <i id="winner" class="far sign"></i>
+                </div>
+                <p id="greaterthan">></p>
+                <div id="f2">
+                    <i id="loser"class="far sign"></i>
+                </div>
+            </div>
+        </div>    
+        <div id="scoresContainer" style="display: flex; justify-content: center;">
+            <div class="scores">
+                <div class=playerscore>
+                    <div id="player">Player</div>
+                    <div id="player-score-number">0</div>
+                </div>
+                <div class="cpuscore">
+                    <div id="cpu">Computer</div>
+                    <div id="cpu-score-number">0</div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="scores">
-        
-    </div>
-
 </html>
 <script src="script.js"></script>

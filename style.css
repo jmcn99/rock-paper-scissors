@@ -62,3 +62,29 @@ html {
     user-select: none;  
     cursor: default;
 }
+
+.scoresContainer {
+    position: sticky;
+}
+.scores {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1em;
+    position: fixed;
+}
+.playerscore, .cpuscore {
+    display: flex;
+}
+#player, #cpu {
+    margin-right: 10px;
+}
+#player-score-number {
+    color: green;
+}
+#cpu-score-number {
+    color: red;
+}
+
+
+
