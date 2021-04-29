@@ -122,17 +122,17 @@ function fadeOut() {
             container.style.opacity = 1
         }
         if(container.style.opacity > 0) {
-            container.style.opacity -= 0.01;
+            container.style.opacity -= 0.05;
         } else {
             document.getElementById("game-container").remove();
             clearInterval(fade);
         }
     }, 10);
 
-    let playAgain = document.createElement('div');
-    playAgain.setAttribute('style', 'border:solid;border-radius:25;font-size:25px;display:flex;justify-content:center;width:auto;');
-    playAgain.textContent = 'Play Again?';
-    let main = document.getElementById('main');
+    let playAgain = document.createElement('p');
+    playAgain.setAttribute('style', 'border: solid; border-color: grey; border-radius: 25px; margin-top: 200px;padding:20px;border-width: 2px;');
+    playAgain.innerHTML = 'Play Again?';
+    let main = document.getElementById('scoresContainer');
     main.appendChild(playAgain);
 
 }
