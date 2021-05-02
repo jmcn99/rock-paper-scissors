@@ -154,12 +154,29 @@ function playAgain() {
     const container = document.getElementById('scores');
     const playAgain = document.createElement('p');
     playAgain.innerText = "Play Again";
-    playAgain.onclick = () => window.location.reload();
+    playAgain.onclick = () => reset();
     playAgain.onmouseover = () => playAgain.style.cursor = 'pointer';
     playAgain.onmouseleave = () => playAgain.style.cursor = 'default';
     playAgain.setAttribute('style', 'border-radius: 25px; border-width: 1px; border-color: grey; border-style: solid; margin-top: 50px; padding: 25px;')
     container.appendChild(playAgain);
 }
+
+function reset() {
+    const all = document.getElementById("main");
+    let opacity = 1;
+    all.style.opacity = opacity;
+    let fade = setInterval(function () {
+        if(opacity > 0) {
+            opacity -= 0.01;
+            all.style.opacity = opacity;
+        } else {
+            clearInterval(fade);
+            window.location.reload();
+
+        }
+    }, 10)
+}
+
 
 
 
