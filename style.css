@@ -71,7 +71,6 @@ html {
     justify-content: center;
     flex-direction: column;
     padding-top: 1em;
-    position: fixed;
 }
 .playerscore, .cpuscore {
     display: flex;

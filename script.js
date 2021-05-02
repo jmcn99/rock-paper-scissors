@@ -1,15 +1,18 @@
-const buttons = document.querySelectorAll('i')
-
+const buttons = document.querySelectorAll('i');
 
 let user;
 let cpu;
+let playerScore = 0;
+let cpuScore = 0;
 
 buttons.forEach((i) => {
     i.addEventListener('click', () => {
-        buttonsClear();
-        user = parseInt(i.id);
-        i.style.borderColor = "green";
-        play();
+        if(cpuScore != 5 && playerScore != 5) {
+            buttonsClear();
+            user = parseInt(i.id);
+            i.style.borderColor = "green";
+            play();
+        }
     });
 });
 
@@ -38,9 +41,6 @@ function cpuIn() {
 }
 
 function changeSign(num1, num2) {
-    console.log(num1);
-    console.log(num2);
-    console.log("change");
     if(num1 === 1) {
         winner.classList.remove('fa-hand-paper', 'fa-hand-scissors');
         winner.classList.add('fa-hand-rock');
@@ -117,25 +117,50 @@ function scoreCheck() {
 
 function fadeOut() {
     let container = document.getElementById("game-container");
+    let scores = document.getElementById("scoresContainer");
     let fade = setInterval(function () {
-        if(!container.style.opacity) {
-            container.style.opacity = 1
+        if(!container.style.opacity || !scores.style.opacity) {
+            container.style.opacity = 1;
+            scores.style.opacity = 1;
         }
-        if(container.style.opacity > 0) {
-            container.style.opacity -= 0.05;
+        if(container.style.opacity > 0 && container.style.opacity != null) {
+            container.style.opacity -= 0.01;
+            scores.style.opacity -= 0.01;
+            console.log("fade down");
         } else {
-            document.getElementById("game-container").remove();
             clearInterval(fade);
+            document.getElementById("game-container").remove();
+            fadeIn();
+            return null;
         }
     }, 10);
-
-    let playAgain = document.createElement('p');
-    playAgain.setAttribute('style', 'border: solid; border-color: grey; border-radius: 25px; margin-top: 200px;padding:20px;border-width: 2px;');
-    playAgain.innerHTML = 'Play Again?';
-    let main = document.getElementById('scoresContainer');
-    main.appendChild(playAgain);
-
 }
+function fadeIn() {
+    let scores = document.getElementById("scoresContainer");
+    let opacity = 0;
+    scores.style.opacity = opacity;
+    playAgain();
+    let fade = setInterval(function () {
+        if(opacity < 1) {
+            opacity += 0.01;
+            scores.style.opacity = opacity;
+        } else {
+            clearInterval(fade);
+        }
+    }, 10)
+}
+
+function playAgain() {
+    const container = document.getElementById('scores');
+    const playAgain = document.createElement('p');
+    playAgain.innerText = "Play Again";
+    playAgain.onclick = () => window.location.reload();
+    playAgain.onmouseover = () => playAgain.style.cursor = 'pointer';
+    playAgain.onmouseleave = () => playAgain.style.cursor = 'default';
+    playAgain.setAttribute('style', 'border-radius: 25px; border-width: 1px; border-color: grey; border-style: solid; margin-top: 50px; padding: 25px;')
+    container.appendChild(playAgain);
+}
+
 
 
 // 1 = rock
@@ -159,7 +184,6 @@ function play() {
 }
 
 
-let playerScore = 0;
-let cpuScore = 0;
+
 
 
