@@ -1,6 +1,7 @@
 Simple browser based Rock, Paper, Scissors game coded in HTML, CSS and JS.
 
 Can be played here 👇
+
 https://jmcn99.github.io/rock-paper-scissors/
 
 TODO:
